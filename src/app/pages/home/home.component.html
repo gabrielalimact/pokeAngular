@@ -5,12 +5,12 @@
       <ion-button id="favorites-dropdown" expand="block">
       <ion-icon name="menu-outline"></ion-icon>
       </ion-button>
-      <ion-popover trigger="favorites-dropdown" triggerAction="click">
-      <ng-template>
-        <ion-list>
-        <ion-item button (click)="goToFavorites()">Ver favoritos</ion-item>
-        </ion-list>
-      </ng-template>
+      <ion-popover #favoritesPopover trigger="favorites-dropdown" triggerAction="click">
+        <ng-template>
+          <ion-list>
+        <ion-item button (click)="navigationService.goToFavorites(); favoritesPopover.dismiss()">Ver favoritos</ion-item>
+          </ion-list>
+        </ng-template>
       </ion-popover>
     </ion-buttons>
   </ion-toolbar>

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { Pokemon, PokemonList } from 'src/app/models/pokemon.model';
+import { NavigationService } from 'src/app/core/service/navigation.service';
 
 @Component({
   selector: 'app-home',
@@ -37,8 +38,10 @@ export class HomeComponent  implements OnInit {
   pokemons: Pokemon[] = [];
   offset = 0;
   limit = 20;
-
-  constructor(private pokeService: PokemonService) {
+  constructor(
+    private pokeService: PokemonService,
+    public navigationService: NavigationService,
+  ) {
     addIcons({
       menuOutline: menuOutline,
       heartOutline: heartOutline,
@@ -62,11 +65,5 @@ export class HomeComponent  implements OnInit {
         if (event) event.target.complete();
       });
     });
-  }
-
-  goToFavorites() {
-    console.log('Navigating to favorites');
-    // Implement navigation to favorites page
-    // this.router.navigate(['/favorites']);
   }
 }
