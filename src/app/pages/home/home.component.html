@@ -15,11 +15,11 @@
       >
         <ion-card [routerLink]="['/details', pokemon.name]" button>
           <img
-            [src]="pokemon.sprites.front_default"
+            [src]="pokemon.sprites?.other?.['official-artwork']?.front_default"
             alt="{{ pokemon.name }}"
-            style="width: 100%; object-fit: contain; margin-top: 10px;"
+            class="pokemon-thumb"
           />
-          <ion-card-content class="ion-text-center">
+          <ion-card-content class="pokemon-name ion-text-center">
             {{ pokemon.name | titlecase }}
           </ion-card-content>
         </ion-card>

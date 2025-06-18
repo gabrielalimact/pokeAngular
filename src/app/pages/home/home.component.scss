@@ -1,0 +1,23 @@
+ion-card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  .pokemon-thumb {
+    width: 300px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+
+  .pokemon-name {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0;
+  }
+}
