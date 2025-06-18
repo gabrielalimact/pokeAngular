@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/core/service/pokemon.service';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInfiniteScroll, IonInfiniteScrollContent, IonRow, IonCol, IonCardContent, IonGrid} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInfiniteScroll, IonInfiniteScrollContent, IonRow, IonCol, IonCardContent, IonGrid, IonButtons, IonButton, IonIcon, IonItem, IonList, IonPopover } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { menuOutline, heartOutline, heart } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { forkJoin } from 'rxjs';
@@ -10,7 +12,11 @@ import { Pokemon, PokemonList } from 'src/app/models/pokemon.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [IonContent,
+  imports: [
+    IonContent,
+    IonIcon,
+    IonButtons,
+    IonButton,
     IonHeader,
     IonTitle,
     IonToolbar,
@@ -21,7 +27,10 @@ import { Pokemon, PokemonList } from 'src/app/models/pokemon.model';
     IonRow,
     IonCol,
     IonCardContent,
-    IonGrid
+    IonGrid,
+    IonItem,
+    IonList,
+    IonPopover,
   ],
 })
 export class HomeComponent  implements OnInit {
@@ -29,7 +38,13 @@ export class HomeComponent  implements OnInit {
   offset = 0;
   limit = 20;
 
-  constructor(private pokeService: PokemonService) {}
+  constructor(private pokeService: PokemonService) {
+    addIcons({
+      menuOutline: menuOutline,
+      heartOutline: heartOutline,
+      heart: heart,
+    });
+  }
 
   ngOnInit() {
     this.loadPokemons();
@@ -47,5 +62,11 @@ export class HomeComponent  implements OnInit {
         if (event) event.target.complete();
       });
     });
+  }
+
+  goToFavorites() {
+    console.log('Navigating to favorites');
+    // Implement navigation to favorites page
+    // this.router.navigate(['/favorites']);
   }
 }
