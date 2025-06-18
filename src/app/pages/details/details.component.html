@@ -8,12 +8,19 @@
 </ion-header>
 
 <ion-content *ngIf="pokemon" class="details-content">
+
   <div class="image-container">
     <img
       [src]="pokemon.sprites?.other?.['official-artwork']?.front_default"
       alt="{{ pokemon.name }}"
       class="pokemon-thumb"
     />
+  </div>
+
+  <div class="favorite-button-container">
+    <ion-button fill="clear" color="danger" (click)="addToFavorites(pokemon)">
+      <ion-icon name="heart-outline" slot="icon-only"></ion-icon>
+    </ion-button>
   </div>
 
   <ion-list class="info-list">

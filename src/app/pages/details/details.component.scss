@@ -12,7 +12,10 @@
       object-fit: contain;
     }
   }
-
+  .favorite-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
   .info-list {
     margin: 16px;
     padding: 16px;
